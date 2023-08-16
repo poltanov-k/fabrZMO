@@ -20,21 +20,21 @@ try:
     #Начало авторизации по ЭЦП
     autorizationWindow = browser.find_element(By.XPATH, value='//*[@id="btnLoginModal"]')
     autorizationWindow.click()
-    time.sleep(2)
+    browser.implicitly_wait(15)
 
-    sertificate = browser.find_element(By.XPATH, value='//*[@id="sert"]/div[1]/div/fieldset/div/table/tbody/tr[3]/td[1]/div/label/span[1]')
+    sertificate = browser.find_element(By.XPATH, value='//*[@id="sert"]/div[1]/div/fieldset/div/table/tbody/tr[4]/td[1]/div/label/span[1]')
     sertificate.click()
 
     button = browser.find_element(By.XPATH, value='//*[@id="loginModal"]/div/div/div[3]/div[1]/div[2]/button')
     button.click()
-    time.sleep(7)
+    browser.implicitly_wait(15)
 
     customer = browser.find_element(By.XPATH, value='//*[@id="row-4"]/td[3]/div/label/span[1]')
     customer.click()
-    time.sleep(5)
+    time.sleep(3)
     button = browser.find_element(By.XPATH, value='//*[@id="login-ambiguous-ecp-buttonWrapper-element"]/input')
     button.click()
-    time.sleep(5)
+    browser.implicitly_wait(15)
     #Конец авторизации по ЭЦП
 
     dateToday = (datetime.datetime.now()) + datetime.timedelta(days=4) #Расчеты дат для ДОПЗ
@@ -54,7 +54,7 @@ try:
     price.send_keys('590000')
     OKPD2 = browser.find_element(By.XPATH, value='//*[@id="common-items-0-okpd2-okpd2"]')
     OKPD2.click()
-    time.sleep(3)
+    browser.implicitly_wait(10)
     OKPD2Choose = browser.find_element(By.XPATH, value='//*[@id="rowId-8873882"]/td[1]/div/label/span[1]')
     OKPD2Choose.click()
     OKPD2Btn = browser.find_element(By.XPATH, value='/html/body/div[7]/div/div/div[3]/button[2]')
@@ -63,12 +63,12 @@ try:
     lotName.send_keys('Крыса радиоактивная')
     lotCount = browser.find_element(By.XPATH, value='//*[@id="row-0"]/td[2]/input')
     lotCount.send_keys('5')
-    time.sleep(2)
+    browser.implicitly_wait(10)
     lotType = Select(browser.find_element(By.XPATH, value='//*[@id="common-items-0-okpd2-type"]'))
     lotType.select_by_visible_text('Товар')
     measure = browser.find_element(By.XPATH, value='//*[@id="common-items-0-okpd2-okei"]')
     measure.click()
-    time.sleep(4)
+    browser.implicitly_wait(10)
     measureChoose = browser.find_element(By.XPATH, value='//*[@id="rowId-506"]/td[1]/div/label/span[1]')
     measureChoose.click()
     measureBtn = browser.find_element(By.XPATH, value='/html/body/div[7]/div/div/div[3]/button[2]')
@@ -97,13 +97,13 @@ try:
     docs.send_keys(file_path)
     docsSend = browser.find_element(By.XPATH, value='//*[@id="row-0"]/td[2]/div/button[1]')
     docsSend.click()
-    time.sleep(10)
+    browser.implicitly_wait(10)
     #Конец заполнения извещения
 
     #Публикация и подписание извещения ЭЦП
     publicate = browser.find_element(By.XPATH, value='//*[@id="common-resultButtons-element"]/input[2]')
     publicate.click()
-    time.sleep(5)
+    time.sleep(3)
     acknowledgement = browser.find_element(By.XPATH, value='/html/body/div[7]/div/div/div[3]/button')
     acknowledgement.click()
 
